@@ -4,7 +4,7 @@ using UnityEngine;
 // Saves JSON on PlayerPrefs for testing purposes
 public class DataManager : MonoBehaviour
 {
-    private const string savedItemsPrefKey = "SavedItems";
+    private const string savedDataPrefKey = "SavedItems";
 
     [SerializeField]
     private ItemSOHolder allItems;
@@ -13,7 +13,7 @@ public class DataManager : MonoBehaviour
 
     public List<ItemRuntime> GetInventoryItems()
     {
-        var savedItems = GetSavedItemsData();
+        var savedItems = GetSavedData().inventoryItems;
         var runtimeItems = new List<ItemRuntime>();
 
         // find matching items on allItems
@@ -32,26 +32,26 @@ public class DataManager : MonoBehaviour
         return runtimeItems;
     }
 
-    private List<string> GetSavedItemsData()
+    private SaveData GetSavedData()
     {
-        var savedData = new List<string>();
+        var savedData = new SaveData();
 
-        if (PlayerPrefs.HasKey(savedItemsPrefKey))
+        if (PlayerPrefs.HasKey(savedDataPrefKey))
         {
-            string savedDataJSON = PlayerPrefs.GetString(savedItemsPrefKey);
-            savedData = JsonUtility.FromJson<List<string>>(savedDataJSON);
+            string savedDataJSON = PlayerPrefs.GetString(savedDataPrefKey);
+            savedData = JsonUtility.FromJson<SaveData>(savedDataJSON);
         }
         else
         {
             // Create new data
-            savedData = new List<string>();
+            savedData.inventoryItems = new List<string>();
             foreach (var item in starterItems.items)
             {
-                savedData.Add(item.name);
+                savedData.inventoryItems.Add(item.name);
             }
 
             string newSaveDataJSON = JsonUtility.ToJson(savedData);
-            PlayerPrefs.SetString(savedItemsPrefKey, newSaveDataJSON);
+            PlayerPrefs.SetString(savedDataPrefKey, newSaveDataJSON);
         }
 
         return savedData;
