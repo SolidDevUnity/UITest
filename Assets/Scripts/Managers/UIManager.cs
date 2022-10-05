@@ -7,6 +7,10 @@ public class UIManager : MonoBehaviour
     private Canvas InventoryScreen;
     [SerializeField]
     private Canvas ItemPreviewScreen;
+    [SerializeField]
+    private Canvas PutUpForSaleScreen;
+    [SerializeField]
+    private Canvas DeleteConfirmationWindow;
 
     [Space]
     [Header("Market")]
@@ -22,6 +26,17 @@ public class UIManager : MonoBehaviour
     public void ToggleItemPreviewScreen(bool isActive)
     {
         ToggleScreen(ItemPreviewScreen, isActive);
+    }
+
+    public void TogglePutUpForSaleScreen(bool isActive)
+    {
+        Debug.Log("called ui manager");
+        ToggleScreen(ItemPreviewScreen, isActive);
+    }
+
+    public void ToggleDeleteConfirmationWindow(bool isActive)
+    {
+        ToggleScreen(DeleteConfirmationWindow, isActive);
     }
     #endregion
 

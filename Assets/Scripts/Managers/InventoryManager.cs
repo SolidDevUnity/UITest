@@ -9,6 +9,8 @@ public class InventoryManager : ScreenManager
     private RectTransform itemSpawnPoint;
     [SerializeField]
     private InventoryItemController inventoryItemPrefab;
+    [SerializeField]
+    private ItemPreviewScreen itemPreviewScreen;
 
     [Space]
     [Header("Preview")]
@@ -45,8 +47,25 @@ public class InventoryManager : ScreenManager
         itemDescription.text = item.itemDescription;
     }
 
-    public void PreviewButtonPressed()
+    public void OpenItemPreviewScreen()
     {
         uiManager.ToggleItemPreviewScreen(true);
+        itemPreviewScreen.Initialize(displayedItem, this);
+    }
+
+    public void CloseItemPreviewScreen()
+    {
+        uiManager.ToggleItemPreviewScreen(false);
+    }
+
+    public void PutUpForSaleItem()
+    {
+        uiManager.TogglePutUpForSaleScreen(true);
+    }
+
+    public void DeleteItem()
+    {
+        Debug.Log("delete");
+        uiManager.ToggleDeleteConfirmationWindow(true);
     }
 }
