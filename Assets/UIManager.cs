@@ -6,4 +6,6 @@ public class UIManager : MonoBehaviour
     private Canvas InventoryCanvas;
     [SerializeField]
     private Canvas MarketScreenCanvas;
+    [SerializeField]
+    private Canvas ItemPreviewScreen;
 }
