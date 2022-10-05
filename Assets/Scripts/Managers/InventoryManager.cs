@@ -28,6 +28,8 @@ public class InventoryManager : ScreenManager
             var spawnedItem = Instantiate(inventoryItemPrefab, itemSpawnPoint);
             spawnedItem.Initialize(item, this);
         }
+
+        DisplayInPreviewArea(items[0]);
     }
 
     public override void OpenScreen()
