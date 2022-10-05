@@ -12,6 +12,6 @@ public class InventoryItemController : ItemController
     protected override void ItemButtonClick()
     {
         base.ItemButtonClick();
-        inventoryManager.ShowPreview(itemRuntime);
+        inventoryManager.DisplayInPreviewArea(itemRuntime);
     }
 }

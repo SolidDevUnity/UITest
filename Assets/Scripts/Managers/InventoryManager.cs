@@ -16,6 +16,7 @@ public class InventoryManager : ScreenManager
     private Image itemImage;
     [SerializeField]
     private TextMeshProUGUI itemDescription;
+    private ItemRuntime displayedItem;
 
     private void Start()
     {
@@ -37,9 +38,15 @@ public class InventoryManager : ScreenManager
         uiManager.ToggleInventoryScreen(false);
     }
 
-    public void ShowPreview(ItemRuntime item)
+    public void DisplayInPreviewArea(ItemRuntime item)
     {
+        displayedItem = item;
         itemImage.sprite = item.itemImage;
         itemDescription.text = item.itemDescription;
+    }
+
+    public void PreviewButtonPressed()
+    {
+        uiManager.ToggleItemPreviewScreen(true);
     }
 }
