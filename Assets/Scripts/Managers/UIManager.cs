@@ -30,8 +30,7 @@ public class UIManager : MonoBehaviour
 
     public void TogglePutUpForSaleScreen(bool isActive)
     {
-        Debug.Log("called ui manager");
-        ToggleScreen(ItemPreviewScreen, isActive);
+        ToggleScreen(PutUpForSaleScreen, isActive);
     }
 
     public void ToggleDeleteConfirmationWindow(bool isActive)
