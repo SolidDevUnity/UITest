@@ -310,6 +310,7 @@ GameObject:
   - component: {fileID: 38174067}
   - component: {fileID: 38174066}
   - component: {fileID: 38174065}
+  - component: {fileID: 38174068}
   m_Layer: 5
   m_Name: ItemPreviewScreen
   m_TagString: Untagged
@@ -402,6 +403,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!225 &38174068
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38174063}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &45846956
 GameObject:
   m_ObjectHideFlags: 0
@@ -1079,6 +1092,7 @@ GameObject:
   - component: {fileID: 220704947}
   - component: {fileID: 220704946}
   - component: {fileID: 220704945}
+  - component: {fileID: 220704948}
   m_Layer: 5
   m_Name: InventoryScreen
   m_TagString: Untagged
@@ -1173,6 +1187,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!225 &220704948
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220704943}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &235896689
 GameObject:
   m_ObjectHideFlags: 0
@@ -1631,6 +1657,7 @@ GameObject:
   - component: {fileID: 315726197}
   - component: {fileID: 315726196}
   - component: {fileID: 315726195}
+  - component: {fileID: 315726198}
   m_Layer: 5
   m_Name: ItemPreviewScreen
   m_TagString: Untagged
@@ -1727,6 +1754,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!225 &315726198
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315726193}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &332585458
 GameObject:
   m_ObjectHideFlags: 0
@@ -4241,6 +4280,7 @@ GameObject:
   - component: {fileID: 1115789823}
   - component: {fileID: 1115789822}
   - component: {fileID: 1115789821}
+  - component: {fileID: 1115789824}
   m_Layer: 5
   m_Name: PutUpForSaleScreen
   m_TagString: Untagged
@@ -4336,6 +4376,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!225 &1115789824
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115789819}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1124005794
 GameObject:
   m_ObjectHideFlags: 0
@@ -4727,6 +4779,7 @@ GameObject:
   - component: {fileID: 1172687108}
   - component: {fileID: 1172687107}
   - component: {fileID: 1172687106}
+  - component: {fileID: 1172687110}
   m_Layer: 5
   m_Name: MainCanvas
   m_TagString: Untagged
@@ -4822,6 +4875,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!225 &1172687110
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172687105}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1193904004
 GameObject:
   m_ObjectHideFlags: 0
@@ -5154,6 +5219,7 @@ GameObject:
   - component: {fileID: 1251368213}
   - component: {fileID: 1251368212}
   - component: {fileID: 1251368211}
+  - component: {fileID: 1251368214}
   m_Layer: 5
   m_Name: ItemsForSaleArea
   m_TagString: Untagged
@@ -5244,6 +5310,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!225 &1251368214
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251368209}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1269763097
 GameObject:
   m_ObjectHideFlags: 0
@@ -5670,6 +5748,7 @@ GameObject:
   - component: {fileID: 1354333016}
   - component: {fileID: 1354333015}
   - component: {fileID: 1354333014}
+  - component: {fileID: 1354333017}
   m_Layer: 5
   m_Name: ItemListArea
   m_TagString: Untagged
@@ -5760,6 +5839,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!225 &1354333017
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354333012}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1373445000
 GameObject:
   m_ObjectHideFlags: 0
@@ -5809,6 +5900,7 @@ GameObject:
   - component: {fileID: 1399406618}
   - component: {fileID: 1399406617}
   - component: {fileID: 1399406616}
+  - component: {fileID: 1399406619}
   m_Layer: 5
   m_Name: PreviewArea
   m_TagString: Untagged
@@ -5902,6 +5994,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!225 &1399406619
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399406614}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1418332010
 GameObject:
   m_ObjectHideFlags: 0
@@ -7137,6 +7241,7 @@ GameObject:
   - component: {fileID: 1790852130}
   - component: {fileID: 1790852129}
   - component: {fileID: 1790852128}
+  - component: {fileID: 1790852131}
   m_Layer: 5
   m_Name: DeleteConfirmationWindow
   m_TagString: Untagged
@@ -7231,6 +7336,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!225 &1790852131
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790852126}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1802760530
 GameObject:
   m_ObjectHideFlags: 0
@@ -8470,6 +8587,7 @@ GameObject:
   - component: {fileID: 2123658083}
   - component: {fileID: 2123658082}
   - component: {fileID: 2123658081}
+  - component: {fileID: 2123658084}
   m_Layer: 5
   m_Name: MarketScreen
   m_TagString: Untagged
@@ -8565,6 +8683,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!225 &2123658084
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123658079}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &2127010975
 GameObject:
   m_ObjectHideFlags: 0

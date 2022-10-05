@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -24,5 +25,9 @@ public class UIManager : MonoBehaviour
     private void ToggleScreen(Canvas canvas, bool isActive)
     {
         canvas.enabled = isActive;
+
+        CanvasGroup canvasGroup = canvas.GetComponent<CanvasGroup>();
+        canvasGroup.blocksRaycasts = isActive;
+        canvasGroup.interactable = isActive;
     }
 }
