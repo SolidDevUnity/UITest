@@ -29,8 +29,6 @@ public class MarketScreenView : ScreenView
                 },
                 () =>
                 {
-                    // About button
-                    Debug.Log("about");
                     marketManagerCache.ToggleItemPreviewScreen(true, itemCache);
                 });
         }

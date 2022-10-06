@@ -22,6 +22,11 @@ public class MarketManager : MonoBehaviour
         }
     }
 
+    public void ToggleItemPreviewScreen(bool isActive)
+    {
+        itemPreviewScreenView.ToggleScreen(isActive);
+    }
+
     public void ToggleItemPreviewScreen(bool isActive, ItemRuntime itemRuntime)
     {
         itemPreviewScreenView.ToggleScreen(isActive);

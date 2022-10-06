@@ -7027,8 +7027,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1421650336}
-        m_TargetAssemblyTypeName: InventoryManager, Assembly-CSharp
+      - m_Target: {fileID: 791246124}
+        m_TargetAssemblyTypeName: MarketManager, Assembly-CSharp
         m_MethodName: ToggleItemPreviewScreen
         m_Mode: 6
         m_Arguments:
