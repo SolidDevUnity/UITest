@@ -12,6 +12,14 @@ public class DataManager : MonoBehaviour
     private ItemSOHolder starterItems;
     [SerializeField]
     private ItemSOHolder marketStarterItems;
+    [SerializeField]
+    private int startingGold = 1000;
+
+    public int GetPlayerGold()
+    {
+        var goldAmount = GetSavedData().playerGold;
+        return goldAmount;
+    }
 
     public List<ItemRuntime> GetMarketItems()
     {
@@ -68,6 +76,8 @@ public class DataManager : MonoBehaviour
             {
                 savedData.marketItems.Add(item.name);
             }
+
+            savedData.playerGold = startingGold;
 
             string newSaveDataJSON = JsonUtility.ToJson(savedData);
             PlayerPrefs.SetString(savedDataPrefKey, newSaveDataJSON);
