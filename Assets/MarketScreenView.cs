@@ -8,7 +8,7 @@ public class MarketScreenView : ScreenView
     [SerializeField]
     private MarketItemController marketItemPrefab;
 
-    public void Initialize(List<ItemRuntime> marketItems)
+    public void Initialize(List<ItemRuntime> marketItems, MarketManager marketManager)
     {
         foreach (Transform item in marketItemSpawnPoint)
         {
@@ -19,6 +19,7 @@ public class MarketScreenView : ScreenView
         {
             var spawnedItem = Instantiate(marketItemPrefab, marketItemSpawnPoint);
             var itemCache = item;
+            var marketManagerCache = marketManager;
             spawnedItem.Initialize(
                 item,
                 () =>
@@ -30,6 +31,7 @@ public class MarketScreenView : ScreenView
                 {
                     // About button
                     Debug.Log("about");
+                    marketManagerCache.ToggleItemPreviewScreen(true, itemCache);
                 });
         }
     }

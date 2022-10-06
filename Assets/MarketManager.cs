@@ -8,6 +8,8 @@ public class MarketManager : MonoBehaviour
     [Space]
     [SerializeField]
     private MarketScreenView marketScreenView;
+    [SerializeField]
+    private ItemPreviewScreenView itemPreviewScreenView;
 
     public void ToggleMarketScreen(bool isActive)
     {
@@ -16,7 +18,17 @@ public class MarketManager : MonoBehaviour
         if (isActive)
         {
             var items = dataManager.GetMarketItems();
-            marketScreenView.Initialize(items);
+            marketScreenView.Initialize(items, this);
+        }
+    }
+
+    public void ToggleItemPreviewScreen(bool isActive, ItemRuntime itemRuntime)
+    {
+        itemPreviewScreenView.ToggleScreen(isActive);
+
+        if (isActive)
+        {
+            itemPreviewScreenView.Initialize(itemRuntime);
         }
     }
 }
