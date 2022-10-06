@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ItemPreviewScreen : MonoBehaviour
+public class ItemPreviewScreenView : MonoBehaviour
 {
     [SerializeField]
     private TextMeshProUGUI itemName;
@@ -23,8 +23,8 @@ public class ItemPreviewScreen : MonoBehaviour
         itemDescription.text = itemRuntime.itemDescription;
         itemImage.sprite = itemRuntime.itemImage;
 
-        putUpForSaleButton.onClick.AddListener(inventoryManager.PutUpForSaleItem);
-        deleteButton.onClick.AddListener(inventoryManager.DeleteItem);
+        putUpForSaleButton.onClick.AddListener(inventoryManager.ShowPutUpForSaleItemScreen);
+        deleteButton.onClick.AddListener(inventoryManager.ShowDeleteItemScreen);
     }
 
     private void OnDisable()

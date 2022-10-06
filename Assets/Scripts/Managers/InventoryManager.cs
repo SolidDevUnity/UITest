@@ -10,7 +10,7 @@ public class InventoryManager : ScreenManager
     [SerializeField]
     private InventoryItemController inventoryItemPrefab;
     [SerializeField]
-    private ItemPreviewScreen itemPreviewScreen;
+    private ItemPreviewScreenView itemPreviewScreen;
 
     [Space]
     [Header("Preview")]
@@ -60,14 +60,27 @@ public class InventoryManager : ScreenManager
         uiManager.ToggleItemPreviewScreen(false);
     }
 
-    public void PutUpForSaleItem()
+    #region Put Up For Sale Item
+    public void ShowPutUpForSaleItemScreen()
     {
         uiManager.TogglePutUpForSaleScreen(true);
     }
 
-    public void DeleteItem()
+    public void PutUpItemForSale()
     {
-        Debug.Log("delete");
+        Debug.Log("PutUpItemForSale");
+    }
+    #endregion
+
+    #region Delete Item
+    public void ShowDeleteItemScreen()
+    {
         uiManager.ToggleDeleteConfirmationWindow(true);
     }
+
+    public void DeleteItem()
+    {
+        Debug.Log("delete item");
+    }
+    #endregion
 }
