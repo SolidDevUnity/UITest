@@ -8,6 +8,11 @@ public class StartScreenView : ScreenView
 
     public void Initialize(int playerGold)
     {
+        UpdateGoldText(playerGold);
+    }
+
+    public void UpdateGoldText(int playerGold)
+    {
         playerGoldText.text = "Player Gold: " + playerGold;
     }
 }

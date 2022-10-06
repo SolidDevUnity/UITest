@@ -30,7 +30,6 @@ public class MarketScreenView : ScreenView
                         marketPrice = itemCache.marketPrice
                     };
                     marketManagerCache.BuyItem(temp);
-                    marketManagerCache.ToggleMarketScreen(true);
                 },
                 () =>
                 {

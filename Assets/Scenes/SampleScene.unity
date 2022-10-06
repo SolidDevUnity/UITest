@@ -3982,6 +3982,7 @@ MonoBehaviour:
   dataManager: {fileID: 637446616}
   marketScreenView: {fileID: 2123658085}
   itemPreviewScreenView: {fileID: 1231491802}
+  startScreenView: {fileID: 1172687111}
 --- !u!1 &799357785
 GameObject:
   m_ObjectHideFlags: 0

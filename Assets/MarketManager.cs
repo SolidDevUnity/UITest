@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class MarketManager : MonoBehaviour
@@ -10,6 +11,8 @@ public class MarketManager : MonoBehaviour
     private MarketScreenView marketScreenView;
     [SerializeField]
     private ItemPreviewScreenView itemPreviewScreenView;
+    [SerializeField]
+    private StartScreenView startScreenView;
 
     public void BuyItem(ItemDataStruct itemDataStruct)
     {
@@ -22,7 +25,10 @@ public class MarketManager : MonoBehaviour
             dataManager.DeductGold(price);
             dataManager.RemoveMarketItem(itemDataStruct);
             dataManager.AddInventoryItem(itemDataStruct);
-            ToggleItemPreviewScreen(false);
+            ToggleMarketScreen(true);
+
+            var gold = dataManager.GetPlayerGold();
+            startScreenView.UpdateGoldText(gold);
         }
     }
 
