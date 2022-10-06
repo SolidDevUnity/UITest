@@ -16,3 +16,4 @@ MonoBehaviour:
   description: The blade is forged and wielded by Azor Ahai, who is chosen by the
     Lord of Light to fight the darkness. This sword is said to glow and radiate heat,
     burning whoever touches it.
+  initialMarketPrice: 300

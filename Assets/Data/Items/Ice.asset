@@ -15,3 +15,4 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: b4c7d5436476c9849b0741b0a6a2c42a, type: 3}
   description: "While Ice has been Stark\u2019s heirloom for generations, by the
     end of the first Season, it is quickly taken by the Lannisters."
+  initialMarketPrice: 200

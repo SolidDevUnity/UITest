@@ -21,7 +21,7 @@ public class MarketScreenView : ScreenView
             var itemCache = item;
             var marketManagerCache = marketManager;
             spawnedItem.Initialize(
-                item,
+                itemCache,
                 () =>
                 {
                     // Buy button

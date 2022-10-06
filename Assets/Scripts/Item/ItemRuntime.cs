@@ -7,6 +7,7 @@ public class ItemRuntime
     public Sprite itemImage;
     public string itemDescription;
     public string itemName;
+    public int marketPrice;
 
     public ItemRuntime(ItemSO itemTemplate)
     {
@@ -15,5 +16,6 @@ public class ItemRuntime
         itemImage = itemTemplate.icon;
         itemDescription = itemTemplate.description;
         itemName = itemTemplate.displayName;
+        marketPrice = itemTemplate.initialMarketPrice;
     }
 }

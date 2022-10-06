@@ -6,6 +6,7 @@ public class ItemSO : ScriptableObject
 {
     public Sprite icon;
     public string description;
+    public int initialMarketPrice;
 
     // gets itemName from ScriptableObject name
     // adds space to CamelCaseNames -> Camel Case Names

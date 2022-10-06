@@ -33,7 +33,7 @@ public class DataManager : MonoBehaviour
         return GetRuntimeItems(inventoryItems);
     }
 
-    private List<ItemRuntime> GetRuntimeItems(List<string> itemList)
+    private List<ItemRuntime> GetRuntimeItems(List<ItemDataStruct> itemList)
     {
         var runtimeItems = new List<ItemRuntime>();
 
@@ -42,9 +42,11 @@ public class DataManager : MonoBehaviour
         {
             foreach (var gameItem in allItems.items)
             {
-                if (gameItem.name.Equals(item))
+                if (gameItem.name.Equals(item.itemName))
                 {
                     var spawnedRuntimeItem = new ItemRuntime(gameItem);
+                    spawnedRuntimeItem.marketPrice = item.marketPrice;
+
                     runtimeItems.Add(spawnedRuntimeItem);
                 }
             }
@@ -65,16 +67,26 @@ public class DataManager : MonoBehaviour
         else
         {
             // Create new data
-            savedData.inventoryItems = new List<string>();
+            savedData.inventoryItems = new List<ItemDataStruct>();
             foreach (var item in starterItems.items)
             {
-                savedData.inventoryItems.Add(item.name);
+                var temp = new ItemDataStruct()
+                {
+                    itemName = item.name,
+                    marketPrice = item.initialMarketPrice
+                };
+                savedData.inventoryItems.Add(temp);
             }
 
-            savedData.marketItems = new List<string>();
+            savedData.marketItems = new List<ItemDataStruct>();
             foreach (var item in marketStarterItems.items)
             {
-                savedData.marketItems.Add(item.name);
+                var temp = new ItemDataStruct()
+                {
+                    itemName = item.name,
+                    marketPrice = item.initialMarketPrice
+                };
+                savedData.marketItems.Add(temp);
             }
 
             savedData.playerGold = startingGold;

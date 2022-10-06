@@ -11,6 +11,11 @@ public class MarketManager : MonoBehaviour
     [SerializeField]
     private ItemPreviewScreenView itemPreviewScreenView;
 
+    public void GetItemPrice(ItemRuntime itemRuntime)
+    {
+
+    }
+
     public void ToggleMarketScreen(bool isActive)
     {
         marketScreenView.ToggleScreen(isActive);
