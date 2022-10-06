@@ -11,11 +11,22 @@ public class MarketManager : MonoBehaviour
     [SerializeField]
     private ItemPreviewScreenView itemPreviewScreenView;
 
-    public void GetItemPrice(ItemRuntime itemRuntime)
+    public void BuyItem(ItemDataStruct itemDataStruct)
     {
+        var price = itemDataStruct.marketPrice;
+        var playerGold = dataManager.GetPlayerGold();
 
+        bool hasEnoughGold = playerGold >= price;
+        if (hasEnoughGold)
+        {
+            dataManager.DeductGold(price);
+            dataManager.RemoveMarketItem(itemDataStruct);
+            dataManager.AddInventoryItem(itemDataStruct);
+            ToggleItemPreviewScreen(false);
+        }
     }
 
+    #region Toggle Screens
     public void ToggleMarketScreen(bool isActive)
     {
         marketScreenView.ToggleScreen(isActive);
@@ -41,4 +52,5 @@ public class MarketManager : MonoBehaviour
             itemPreviewScreenView.Initialize(itemRuntime);
         }
     }
+    #endregion
 }

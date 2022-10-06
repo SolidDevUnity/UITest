@@ -15,22 +15,94 @@ public class DataManager : MonoBehaviour
     [SerializeField]
     private int startingGold = 1000;
 
+    #region Gold
     public int GetPlayerGold()
     {
         var goldAmount = GetSavedData().playerGold;
         return goldAmount;
     }
 
+    public void AddGold(int goldToAdd)
+    {
+        var saveData = GetSavedData();
+        saveData.playerGold += goldToAdd;
+
+        SetSavedData(saveData);
+    }
+
+    public void DeductGold(int goldToDeduct)
+    {
+        var saveData = GetSavedData();
+        saveData.playerGold -= goldToDeduct;
+
+        SetSavedData(saveData);
+    }
+    #endregion
+
+    #region Market
     public List<ItemRuntime> GetMarketItems()
     {
         var marketItems = GetSavedData().marketItems;
         return GetRuntimeItems(marketItems);
     }
 
+    public void AddMarketItem(ItemDataStruct itemDataStruct)
+    {
+        var saveData = GetSavedData();
+
+        var newMarketList = saveData.marketItems;
+        newMarketList.Add(itemDataStruct);
+        saveData.marketItems = newMarketList;
+
+        SetSavedData(saveData);
+    }
+
+    public void RemoveMarketItem(ItemDataStruct itemDataStruct)
+    {
+        var saveData = GetSavedData();
+
+        var newMarketList = saveData.marketItems;
+        newMarketList.Remove(itemDataStruct);
+        saveData.marketItems = newMarketList;
+
+        SetSavedData(saveData);
+    }
+    #endregion
+
+    #region Inventory
     public List<ItemRuntime> GetInventoryItems()
     {
         var inventoryItems = GetSavedData().inventoryItems;
         return GetRuntimeItems(inventoryItems);
+    }
+
+    public void AddInventoryItem(ItemDataStruct itemDataStruct)
+    {
+        var saveData = GetSavedData();
+
+        var newInventoryitems = saveData.inventoryItems;
+        newInventoryitems.Add(itemDataStruct);
+        saveData.inventoryItems = newInventoryitems;
+
+        SetSavedData(saveData);
+    }
+
+    public void RemoveInventoryItem(ItemDataStruct itemDataStruct)
+    {
+        var saveData = GetSavedData();
+
+        var newInventoryitems = saveData.inventoryItems;
+        newInventoryitems.Remove(itemDataStruct);
+        saveData.inventoryItems = newInventoryitems;
+
+        SetSavedData(saveData);
+    }
+    #endregion
+
+    private void SetSavedData(SaveData newSaveData)
+    {
+        string newSaveDataJSON = JsonUtility.ToJson(newSaveData);
+        PlayerPrefs.SetString(savedDataPrefKey, newSaveDataJSON);
     }
 
     private List<ItemRuntime> GetRuntimeItems(List<ItemDataStruct> itemList)
@@ -91,8 +163,7 @@ public class DataManager : MonoBehaviour
 
             savedData.playerGold = startingGold;
 
-            string newSaveDataJSON = JsonUtility.ToJson(savedData);
-            PlayerPrefs.SetString(savedDataPrefKey, newSaveDataJSON);
+            SetSavedData(savedData);
         }
 
         return savedData;
