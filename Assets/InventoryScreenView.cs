@@ -5,18 +5,20 @@ using UnityEngine.UI;
 
 public class InventoryScreenView : ScreenView
 {
-    [Header("Item List")]
+    [Header("Item List Area")]
     [SerializeField]
     private RectTransform itemSpawnPoint;
     [SerializeField]
     private InventoryItemController inventoryItemPrefab;
 
     [Space]
-    [Header("Preview")]
+    [Header("Preview Area")]
     [SerializeField]
     private Image itemImage;
     [SerializeField]
     private TextMeshProUGUI itemDescription;
+
+    public ItemRuntime displayedItem { get; private set; }
 
     public void Initialize(List<ItemRuntime> items)
     {
@@ -37,6 +39,7 @@ public class InventoryScreenView : ScreenView
 
     private void DisplayPreview(ItemRuntime item)
     {
+        displayedItem = item;
         itemImage.sprite = item.itemImage;
         itemDescription.text = item.itemDescription;
     }
