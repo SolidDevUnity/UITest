@@ -216,6 +216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemDisplayName: {fileID: 5268757681610018971}
   itemImage: {fileID: 5812503224937068169}
+  showButton: {fileID: 1773163787487382896}
 --- !u!114 &1773163787487382896
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -3192,6 +3192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allItems: {fileID: 11400000, guid: 0bf84d704fd627b428f8bd958838c320, type: 2}
   starterItems: {fileID: 11400000, guid: c10a9f843dd2d684693e24b2766bd51c, type: 2}
+  marketStarterItems: {fileID: 11400000, guid: e8f41765ab22b704da67b01aa14148ca, type: 2}
 --- !u!1 &651638883
 GameObject:
   m_ObjectHideFlags: 0

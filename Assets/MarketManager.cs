@@ -12,5 +12,11 @@ public class MarketManager : MonoBehaviour
     public void ToggleMarketScreen(bool isActive)
     {
         marketScreenView.ToggleScreen(isActive);
+
+        if (isActive)
+        {
+            var items = dataManager.GetMarketItems();
+            marketScreenView.Initialize(items);
+        }
     }
 }

@@ -10,6 +10,11 @@ public class MarketScreenView : ScreenView
 
     public void Initialize(List<ItemRuntime> marketItems)
     {
+        foreach (Transform item in marketItemSpawnPoint)
+        {
+            Destroy(item.gameObject);
+        }
+
         foreach (var item in marketItems)
         {
             var spawnedItem = Instantiate(marketItemPrefab, marketItemSpawnPoint);
@@ -18,7 +23,13 @@ public class MarketScreenView : ScreenView
                 item,
                 () =>
                 {
-                    //DisplayPreview(itemCache);
+                    // Buy button
+                    Debug.Log("buy");
+                },
+                () =>
+                {
+                    // About button
+                    Debug.Log("about");
                 });
         }
     }

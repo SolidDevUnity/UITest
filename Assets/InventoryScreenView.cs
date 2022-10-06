@@ -20,8 +20,14 @@ public class InventoryScreenView : ScreenView
 
     public ItemRuntime displayedItem { get; private set; }
 
+    // refactor later to check for differences instead of always destroying and spawning
     public void Initialize(List<ItemRuntime> items)
     {
+        foreach (Transform item in itemSpawnPoint)
+        {
+            Destroy(item.gameObject);
+        }
+
         foreach (var item in items)
         {
             var spawnedItem = Instantiate(inventoryItemPrefab, itemSpawnPoint);
