@@ -15,7 +15,7 @@ public class ItemRuntime
 
         itemImage = itemTemplate.icon;
         itemDescription = itemTemplate.description;
-        itemName = itemTemplate.displayName;
+        itemName = itemTemplate.name;
         marketPrice = itemTemplate.initialMarketPrice;
     }
 }
