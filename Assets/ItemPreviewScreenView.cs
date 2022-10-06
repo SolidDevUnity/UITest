@@ -23,8 +23,8 @@ public class ItemPreviewScreenView : MonoBehaviour
         itemDescription.text = itemRuntime.itemDescription;
         itemImage.sprite = itemRuntime.itemImage;
 
-        putUpForSaleButton.onClick.AddListener(inventoryManager.ShowPutUpForSaleItemScreen);
-        deleteButton.onClick.AddListener(inventoryManager.ShowDeleteItemScreen);
+        //putUpForSaleButton.onClick.AddListener(inventoryManager.ShowPutUpForSaleItemScreen);
+        //deleteButton.onClick.AddListener(inventoryManager.ShowDeleteItemScreen);
     }
 
     private void OnDisable()

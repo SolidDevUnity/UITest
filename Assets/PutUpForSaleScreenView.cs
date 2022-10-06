@@ -10,7 +10,7 @@ public class PutUpForSaleScreenView : MonoBehaviour
 
     public void Initialize(ItemRuntime itemRuntime, InventoryManager inventoryManager)
     {
-        sellButton.onClick.AddListener(inventoryManager.PutUpItemForSale);
-        deleteButton.onClick.AddListener(inventoryManager.DeleteItem);
+        //sellButton.onClick.AddListener(inventoryManager.PutUpItemForSale);
+        //deleteButton.onClick.AddListener(inventoryManager.DeleteItem);
     }
 }
