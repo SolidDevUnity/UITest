@@ -635,7 +635,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 98099507}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 791246124}
+        m_TargetAssemblyTypeName: MarketManager, Assembly-CSharp
+        m_MethodName: ToggleMarketScreen
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &98099507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2704,8 +2716,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1421650335}
   - {fileID: 637446615}
+  - {fileID: 1421650335}
+  - {fileID: 791246123}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3824,6 +3837,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 767512308}
   m_CullTransparentMesh: 1
+--- !u!1 &791246122
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 791246123}
+  - component: {fileID: 791246124}
+  m_Layer: 0
+  m_Name: MarketManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &791246123
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791246122}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 480566288}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &791246124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791246122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 813c08ae1e344f148a09f06880d65224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dataManager: {fileID: 637446616}
+  marketScreenView: {fileID: 2123658085}
 --- !u!1 &871556322
 GameObject:
   m_ObjectHideFlags: 0
@@ -4847,7 +4906,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1124005797}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1421650336}
+        m_TargetAssemblyTypeName: InventoryManager, Assembly-CSharp
+        m_MethodName: ToggleInventoryScreen
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 791246124}
+        m_TargetAssemblyTypeName: MarketManager, Assembly-CSharp
+        m_MethodName: ToggleMarketScreen
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1124005797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5420,7 +5503,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1206113992}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 791246124}
+        m_TargetAssemblyTypeName: MarketManager, Assembly-CSharp
+        m_MethodName: ToggleMarketScreen
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1206113992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9317,8 +9412,9 @@ GameObject:
   - component: {fileID: 2123658082}
   - component: {fileID: 2123658081}
   - component: {fileID: 2123658084}
+  - component: {fileID: 2123658085}
   m_Layer: 5
-  m_Name: MarketScreen
+  m_Name: MarketScreenView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9338,8 +9434,8 @@ RectTransform:
   m_Children:
   - {fileID: 1838899234}
   - {fileID: 651638884}
-  - {fileID: 1124005795}
   - {fileID: 1206113990}
+  - {fileID: 1124005795}
   - {fileID: 1251368210}
   - {fileID: 38174064}
   m_Father: {fileID: 446641931}
@@ -9424,6 +9520,20 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &2123658085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123658079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 881e66267ab598d4ca72d6253f8ea3ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  marketItemSpawnPoint: {fileID: 88126029}
+  marketItemPrefab: {fileID: 4657973215626364467, guid: 3fa8c062e69876b4d86217d26da1526f, type: 3}
 --- !u!1 &2127010975
 GameObject:
   m_ObjectHideFlags: 0
