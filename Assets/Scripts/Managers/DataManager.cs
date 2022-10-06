@@ -10,18 +10,31 @@ public class DataManager : MonoBehaviour
     private ItemSOHolder allItems;
     [SerializeField]
     private ItemSOHolder starterItems;
+    [SerializeField]
+    private ItemSOHolder marketStarterItems;
+
+    public List<ItemRuntime> GetMarketItems()
+    {
+        var marketItems = GetSavedData().marketItems;
+        return GetRuntimeItems(marketItems);
+    }
 
     public List<ItemRuntime> GetInventoryItems()
     {
-        var savedItems = GetSavedData().inventoryItems;
+        var inventoryItems = GetSavedData().inventoryItems;
+        return GetRuntimeItems(inventoryItems);
+    }
+
+    private List<ItemRuntime> GetRuntimeItems(List<string> itemList)
+    {
         var runtimeItems = new List<ItemRuntime>();
 
         // find matching items on allItems
-        foreach (var savedItem in savedItems)
+        foreach (var item in itemList)
         {
             foreach (var gameItem in allItems.items)
             {
-                if (gameItem.name.Equals(savedItem))
+                if (gameItem.name.Equals(item))
                 {
                     var spawnedRuntimeItem = new ItemRuntime(gameItem);
                     runtimeItems.Add(spawnedRuntimeItem);
@@ -48,6 +61,12 @@ public class DataManager : MonoBehaviour
             foreach (var item in starterItems.items)
             {
                 savedData.inventoryItems.Add(item.name);
+            }
+
+            savedData.marketItems = new List<string>();
+            foreach (var item in marketStarterItems.items)
+            {
+                savedData.marketItems.Add(item.name);
             }
 
             string newSaveDataJSON = JsonUtility.ToJson(savedData);
