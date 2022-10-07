@@ -1,18 +1,12 @@
-using System;
 using UnityEngine;
 
-public class MarketManager : MonoBehaviour
+public class MarketManager : ScreenManager
 {
-    [SerializeField]
-    private DataManager dataManager;
-
     [Space]
     [SerializeField]
     private MarketScreenView marketScreenView;
     [SerializeField]
     private ItemPreviewScreenView itemPreviewScreenView;
-    [SerializeField]
-    private StartScreenView startScreenView;
 
     public void BuyItem(ItemDataStruct itemDataStruct)
     {
@@ -35,28 +29,32 @@ public class MarketManager : MonoBehaviour
     #region Toggle Screens
     public void ToggleMarketScreen(bool isActive)
     {
-        marketScreenView.ToggleScreen(isActive);
-
-        if (isActive)
-        {
-            var items = dataManager.GetMarketItems();
-            marketScreenView.Initialize(items, this);
-        }
+        ToggleScreen(
+            isActive,
+            marketScreenView,
+            () =>
+            {
+                var items = dataManager.GetMarketItems();
+                marketScreenView.Initialize(items, this);
+            });
     }
 
     public void ToggleItemPreviewScreen(bool isActive)
     {
-        itemPreviewScreenView.ToggleScreen(isActive);
+        ToggleScreen(
+            isActive,
+            itemPreviewScreenView);
     }
 
     public void ToggleItemPreviewScreen(bool isActive, ItemRuntime itemRuntime)
     {
-        itemPreviewScreenView.ToggleScreen(isActive);
-
-        if (isActive)
-        {
-            itemPreviewScreenView.Initialize(itemRuntime);
-        }
+        ToggleScreen(
+            isActive,
+            itemPreviewScreenView,
+            () =>
+            {
+                itemPreviewScreenView.Initialize(itemRuntime);
+            });
     }
     #endregion
 }

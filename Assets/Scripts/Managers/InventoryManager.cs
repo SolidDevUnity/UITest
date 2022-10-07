@@ -1,11 +1,7 @@
-using System;
 using UnityEngine;
 
-public class InventoryManager : MonoBehaviour
+public class InventoryManager : ScreenManager
 {
-    [SerializeField]
-    private DataManager dataManager;
-
     [Space]
     [SerializeField]
     private InventoryScreenView inventoryScreenView;
@@ -15,8 +11,6 @@ public class InventoryManager : MonoBehaviour
     private PutUpForSaleScreenView putUpForSaleScreenView;
     [SerializeField]
     private DeleteConfirmationScreenView deleteConfirmationScreenView;
-    [SerializeField]
-    private StartScreenView startScreenView;
 
     private ItemRuntime displayedItem;
 
@@ -93,20 +87,6 @@ public class InventoryManager : MonoBehaviour
             {
                 deleteConfirmationScreenView.Initialize(displayedItem, this);
             });
-    }
-
-    public void ToggleScreen(bool isActive, ScreenView screenView, Action onActiveAction = null, Action onInActiveAction = null)
-    {
-        screenView.ToggleScreen(isActive);
-
-        if (isActive)
-        {
-            onActiveAction?.Invoke();
-        }
-        else
-        {
-            onInActiveAction?.Invoke();
-        }
     }
     #endregion
 }

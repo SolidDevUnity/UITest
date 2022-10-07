@@ -3978,9 +3978,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataManager: {fileID: 637446616}
+  startScreenView: {fileID: 1172687111}
   marketScreenView: {fileID: 2123658085}
   itemPreviewScreenView: {fileID: 1231491802}
-  startScreenView: {fileID: 1172687111}
 --- !u!1 &799357785
 GameObject:
   m_ObjectHideFlags: 0
@@ -6980,11 +6980,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataManager: {fileID: 637446616}
+  startScreenView: {fileID: 1172687111}
   inventoryScreenView: {fileID: 220704949}
   itemPreviewScreenView: {fileID: 315726199}
   putUpForSaleScreenView: {fileID: 1115789825}
   deleteConfirmationScreenView: {fileID: 1790852132}
-  startScreenView: {fileID: 1172687111}
 --- !u!1 &1430673722
 GameObject:
   m_ObjectHideFlags: 0
