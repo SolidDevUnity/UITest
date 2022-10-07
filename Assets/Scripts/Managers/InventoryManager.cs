@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
@@ -42,38 +43,60 @@ public class InventoryManager : MonoBehaviour
     #region Toggle Screens
     public void ToggleInventoryScreen(bool isActive)
     {
-        inventoryScreenView.ToggleScreen(isActive);
-
-        if (isActive)
-        {
-            var items = dataManager.GetInventoryItems();
-            inventoryScreenView.Initialize(items, this);
-        }
+        ToggleScreen(
+            isActive,
+            inventoryScreenView,
+            () =>
+            {
+                var items = dataManager.GetInventoryItems();
+                inventoryScreenView.Initialize(items, this);
+            });
     }
 
     public void ToggleItemPreviewScreen(bool isActive)
     {
-        itemPreviewScreenView.ToggleScreen(isActive);
-        itemPreviewScreenView.Initialize(displayedItem);
+        ToggleScreen(
+            isActive,
+            itemPreviewScreenView,
+            () =>
+            {
+                itemPreviewScreenView.Initialize(displayedItem);
+            });
     }
 
     public void TogglePutUpForSaleScreen(bool isActive)
     {
-        putUpForSaleScreenView.ToggleScreen(isActive);
-
-        if (isActive)
-        {
-            putUpForSaleScreenView.Initialize(displayedItem, this);
-        }
+        ToggleScreen(
+            isActive,
+            putUpForSaleScreenView,
+            () =>
+            {
+                putUpForSaleScreenView.Initialize(displayedItem, this);
+            });
     }
 
     public void ToggleDeleteConfirmationScreen(bool isActive)
     {
-        deleteConfirmationScreenView.ToggleScreen(isActive);
+        ToggleScreen(
+            isActive,
+            deleteConfirmationScreenView,
+            () =>
+            {
+                deleteConfirmationScreenView.Initialize(displayedItem, this);
+            });
+    }
+
+    public void ToggleScreen(bool isActive, ScreenView screenView, Action onActiveAction = null, Action onInActiveAction = null)
+    {
+        screenView.ToggleScreen(isActive);
 
         if (isActive)
         {
-            deleteConfirmationScreenView.Initialize(displayedItem, this);
+            onActiveAction?.Invoke();
+        }
+        else
+        {
+            onInActiveAction?.Invoke();
         }
     }
     #endregion
