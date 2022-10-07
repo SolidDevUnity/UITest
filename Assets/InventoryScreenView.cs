@@ -18,6 +18,8 @@ public class InventoryScreenView : ScreenView
     private Image itemImage;
     [SerializeField]
     private TextMeshProUGUI itemDescription;
+    [SerializeField]
+    private Button previewButton;
 
     private List<int> spawnedItemsID = new List<int>();
 
@@ -25,7 +27,8 @@ public class InventoryScreenView : ScreenView
     {
         RefreshItemList(items, inventoryManager);
 
-        if (spawnedItemsID.Count > 0)
+        bool hasSpawnedItems = spawnedItemsID.Count > 0;
+        if (hasSpawnedItems)
         {
             var itemToDisplay = items.First(i => spawnedItemsID.Any(siid => siid == i.itemDataStruct.itemID));
             DisplayPreview(itemToDisplay, inventoryManager);
@@ -34,6 +37,8 @@ public class InventoryScreenView : ScreenView
         {
             DisplayPreview(null, inventoryManager);
         }
+
+        previewButton.enabled = hasSpawnedItems;
     }
 
     private void RefreshItemList(List<ItemRuntime> items, InventoryManager inventoryManager)

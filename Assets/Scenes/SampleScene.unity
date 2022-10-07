@@ -1218,6 +1218,7 @@ MonoBehaviour:
   inventoryItemPrefab: {fileID: 5616867764562435306, guid: 30e6b30a523b8d543bd2f3074e08c808, type: 3}
   itemImage: {fileID: 45846958}
   itemDescription: {fileID: 748951895}
+  previewButton: {fileID: 1945430499}
 --- !u!1 &235896689
 GameObject:
   m_ObjectHideFlags: 0
