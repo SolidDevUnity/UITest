@@ -1840,10 +1840,6 @@ RectTransform:
   - {fileID: 1482321449}
   - {fileID: 1802760531}
   - {fileID: 1782827664}
-  - {fileID: 1813042898}
-  - {fileID: 1115789820}
-  - {fileID: 1790852127}
-  - {fileID: 2084507245}
   m_Father: {fileID: 446641931}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2641,6 +2637,8 @@ Transform:
   - {fileID: 161867039}
   - {fileID: 220704944}
   - {fileID: 315726194}
+  - {fileID: 1115789820}
+  - {fileID: 1790852127}
   - {fileID: 523080959}
   - {fileID: 2123658080}
   - {fileID: 1231491801}
@@ -4938,7 +4936,7 @@ GameObject:
   - component: {fileID: 1115789824}
   - component: {fileID: 1115789825}
   m_Layer: 5
-  m_Name: PutUpForSaleScreen -
+  m_Name: PutUpForSaleScreenScreenView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4953,7 +4951,7 @@ RectTransform:
   m_GameObject: {fileID: 1115789819}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.51354164, y: 0.51354164, z: 0.51354164}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1193904005}
@@ -4962,12 +4960,12 @@ RectTransform:
   - {fileID: 235896690}
   - {fileID: 3187634}
   - {fileID: 1245351731}
-  m_Father: {fileID: 315726194}
+  m_Father: {fileID: 446641931}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000059486043, y: 0}
+  m_AnchoredPosition: {x: 493.00003, y: 361.5}
   m_SizeDelta: {x: 1200, y: 900}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1115789821
@@ -5056,8 +5054,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7618874af922614fade9ac888091df5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sellButton: {fileID: 0}
-  deleteButton: {fileID: 0}
 --- !u!1 &1124005794
 GameObject:
   m_ObjectHideFlags: 0
@@ -5287,7 +5283,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1159625402}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1421650336}
+        m_TargetAssemblyTypeName: InventoryManager, Assembly-CSharp
+        m_MethodName: ToggleDeleteConfirmationScreen
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1159625402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5887,7 +5895,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1245351733}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1421650336}
+        m_TargetAssemblyTypeName: InventoryManager, Assembly-CSharp
+        m_MethodName: TogglePutUpForSaleScreen
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1245351733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6960,6 +6980,8 @@ MonoBehaviour:
   dataManager: {fileID: 637446616}
   inventoryScreenView: {fileID: 220704949}
   itemPreviewScreenView: {fileID: 315726199}
+  putUpForSaleScreenView: {fileID: 1115789825}
+  deleteConfirmationScreenView: {fileID: 1790852132}
 --- !u!1 &1430673722
 GameObject:
   m_ObjectHideFlags: 0
@@ -8126,7 +8148,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1688642073}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1421650334}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1688642073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8451,7 +8485,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1782827666}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1421650336}
+        m_TargetAssemblyTypeName: InventoryManager, Assembly-CSharp
+        m_MethodName: ToggleDeleteConfirmationScreen
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1782827666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8503,8 +8549,9 @@ GameObject:
   - component: {fileID: 1790852129}
   - component: {fileID: 1790852128}
   - component: {fileID: 1790852131}
+  - component: {fileID: 1790852132}
   m_Layer: 5
-  m_Name: DeleteConfirmationScreen -
+  m_Name: DeleteConfirmationScreenScreenView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8519,7 +8566,7 @@ RectTransform:
   m_GameObject: {fileID: 1790852126}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.51354164, y: 0.51354164, z: 0.51354164}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2127010976}
@@ -8527,12 +8574,12 @@ RectTransform:
   - {fileID: 332585459}
   - {fileID: 1688642071}
   - {fileID: 1159625400}
-  m_Father: {fileID: 315726194}
+  m_Father: {fileID: 446641931}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000059486043, y: 0}
+  m_AnchoredPosition: {x: 493.00003, y: 361.5}
   m_SizeDelta: {x: 1200, y: 900}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1790852128
@@ -8609,6 +8656,18 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &1790852132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790852126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94e1bf40d9982c44488054cadbf82c60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1802760530
 GameObject:
   m_ObjectHideFlags: 0
@@ -8692,7 +8751,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1802760533}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1421650336}
+        m_TargetAssemblyTypeName: InventoryManager, Assembly-CSharp
+        m_MethodName: TogglePutUpForSaleScreen
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1802760533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8762,42 +8833,6 @@ Transform:
   m_Father: {fileID: 446641931}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1813042897
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1813042898}
-  m_Layer: 5
-  m_Name: ------------------
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1813042898
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1813042897}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 315726194}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1838899233
 GameObject:
   m_ObjectHideFlags: 0
@@ -9915,42 +9950,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2020240958}
   m_CullTransparentMesh: 1
---- !u!1 &2084507244
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2084507245}
-  m_Layer: 5
-  m_Name: ------------------
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2084507245
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2084507244}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 315726194}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2123658079
 GameObject:
   m_ObjectHideFlags: 0

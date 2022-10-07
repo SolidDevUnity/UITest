@@ -10,6 +10,27 @@ public class InventoryManager : MonoBehaviour
     private InventoryScreenView inventoryScreenView;
     [SerializeField]
     private ItemPreviewScreenView itemPreviewScreenView;
+    [SerializeField]
+    private PutUpForSaleScreenView putUpForSaleScreenView;
+    [SerializeField]
+    private DeleteConfirmationScreenView deleteConfirmationScreenView;
+
+    public void DeleteItemFromInventory(ItemDataStruct item)
+    {
+        ToggleItemPreviewScreen(false);
+        dataManager.RemoveInventoryItem(item);
+        ToggleInventoryScreen(true);
+    }
+
+    public void TogglePutUpForSaleScreen(bool isActive)
+    {
+        putUpForSaleScreenView.ToggleScreen(isActive);
+    }
+
+    public void ToggleDeleteConfirmationScreen(bool isActive)
+    {
+        deleteConfirmationScreenView.ToggleScreen(isActive);
+    }
 
     public void ToggleInventoryScreen(bool isActive)
     {
