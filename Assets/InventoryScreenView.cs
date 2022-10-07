@@ -23,6 +23,21 @@ public class InventoryScreenView : ScreenView
 
     public void Initialize(List<ItemRuntime> items, InventoryManager inventoryManager)
     {
+        RefreshItemList(items, inventoryManager);
+
+        if (spawnedItemsID.Count > 0)
+        {
+            var itemToDisplay = items.First(i => spawnedItemsID.Any(siid => siid == i.itemDataStruct.itemID));
+            DisplayPreview(itemToDisplay, inventoryManager);
+        }
+        else
+        {
+            DisplayPreview(null, inventoryManager);
+        }
+    }
+
+    private void RefreshItemList(List<ItemRuntime> items, InventoryManager inventoryManager)
+    {
         // spawn missing items
         var itemsToSpawn = items.Where(i => !spawnedItemsID.Any(siid => siid == i.itemDataStruct.itemID)).ToList();
         foreach (var item in itemsToSpawn)
@@ -49,16 +64,6 @@ public class InventoryScreenView : ScreenView
                 Destroy(item.gameObject);
                 spawnedItemsID.Remove(alreadySpawnedItemID);
             }
-        }
-
-        if(spawnedItemsID.Count > 0)
-        {
-            var itemToDisplay = items.First(i => spawnedItemsID.Any(siid => siid == i.itemDataStruct.itemID));
-            DisplayPreview(itemToDisplay, inventoryManager);
-        }
-        else
-        {
-            DisplayPreview(null, inventoryManager);
         }
     }
 
