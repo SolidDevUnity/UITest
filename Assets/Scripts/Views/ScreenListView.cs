@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+// if you're reading this i probably forgot to use a reusable scrollrect instead that is alot more performant
 public class ScreenListView : ScreenView
 {
     [SerializeField]
