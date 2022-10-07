@@ -17,6 +17,15 @@ public class InventoryManager : MonoBehaviour
     
     private ItemRuntime displayedItem;
 
+    public void PutUpItemForSale(ItemDataStruct item)
+    {
+        ToggleItemPreviewScreen(false);
+        TogglePutUpForSaleScreen(false);
+        ToggleInventoryScreen(true);
+        dataManager.RemoveInventoryItem(item);
+        dataManager.AddMarketItem(item);
+    }
+
     public void DeleteItemFromInventory(ItemDataStruct item)
     {
         ToggleItemPreviewScreen(false);
@@ -51,6 +60,11 @@ public class InventoryManager : MonoBehaviour
     public void TogglePutUpForSaleScreen(bool isActive)
     {
         putUpForSaleScreenView.ToggleScreen(isActive);
+
+        if (isActive)
+        {
+            putUpForSaleScreenView.Initialize(displayedItem, this);
+        }
     }
 
     public void ToggleDeleteConfirmationScreen(bool isActive)

@@ -5054,6 +5054,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7618874af922614fade9ac888091df5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  putUpForSaleButton: {fileID: 3187635}
+  priceInput: {fileID: 235896691}
 --- !u!1 &1124005794
 GameObject:
   m_ObjectHideFlags: 0
