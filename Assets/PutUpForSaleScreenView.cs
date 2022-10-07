@@ -12,15 +12,12 @@ public class PutUpForSaleScreenView : ScreenView
 
     public void Initialize(ItemRuntime itemRuntime, InventoryManager inventoryManager)
     {
-        var cachedInventoryManager = inventoryManager;
-        var cachedItemRuntime = itemRuntime;
-
         priceInput.characterValidation = TMP_InputField.CharacterValidation.Integer;
         putUpForSaleButton.onClick.RemoveAllListeners();
         putUpForSaleButton.onClick.AddListener(() =>
         {
-            cachedItemRuntime.itemDataStruct.marketPrice = Int32.Parse(priceInput.text);
-            cachedInventoryManager.PutUpItemForSale(cachedItemRuntime.itemDataStruct);
+            itemRuntime.itemDataStruct.marketPrice = Int32.Parse(priceInput.text);
+            inventoryManager.PutUpItemForSale(itemRuntime.itemDataStruct);
         });
     }
 }

@@ -26,20 +26,18 @@ public class InventoryScreenView : ScreenView
             Destroy(item.gameObject);
         }
 
-        var cachedInventoryManager = inventoryManager;
         foreach (var item in items)
         {
             var spawnedItem = Instantiate(inventoryItemPrefab, itemSpawnPoint);
-            var itemCache = item;
             spawnedItem.Initialize(
                 item,
                 () =>
                 {
-                    DisplayPreview(itemCache, cachedInventoryManager);
+                    DisplayPreview(item, inventoryManager);
                 });
         }
 
-        DisplayPreview(items.Count > 0 ? items[0] : null, cachedInventoryManager);
+        DisplayPreview(items.Count > 0 ? items[0] : null, inventoryManager);
     }
 
     private void DisplayPreview(ItemRuntime item, InventoryManager inventoryManager)

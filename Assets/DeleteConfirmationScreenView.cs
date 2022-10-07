@@ -8,9 +8,7 @@ public class DeleteConfirmationScreenView : ScreenView
 
     public void Initialize(ItemRuntime item, InventoryManager inventoryManager)
     {
-        var cachedInventoryManager = inventoryManager;
-
         yesDeleteButton.onClick.RemoveAllListeners();
-        yesDeleteButton.onClick.AddListener(() => cachedInventoryManager.DeleteItemFromInventory(item.itemDataStruct));
+        yesDeleteButton.onClick.AddListener(() => inventoryManager.DeleteItemFromInventory(item.itemDataStruct));
     }
 }

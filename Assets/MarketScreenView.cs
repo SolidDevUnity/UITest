@@ -18,17 +18,15 @@ public class MarketScreenView : ScreenView
         foreach (var item in marketItems)
         {
             var spawnedItem = Instantiate(marketItemPrefab, marketItemSpawnPoint);
-            var itemCache = item;
-            var marketManagerCache = marketManager;
             spawnedItem.Initialize(
-                itemCache,
+                item,
                 () =>
                 {
-                    marketManagerCache.BuyItem(itemCache.itemDataStruct);
+                    marketManager.BuyItem(item.itemDataStruct);
                 },
                 () =>
                 {
-                    marketManagerCache.ToggleItemPreviewScreen(true, itemCache);
+                    marketManager.ToggleItemPreviewScreen(true, item);
                 });
         }
     }
