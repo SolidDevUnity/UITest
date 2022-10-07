@@ -64,7 +64,7 @@ public class DataManager : MonoBehaviour
         var saveData = GetSavedData();
 
         var itemToRemove = saveData.marketItems.First(i => i.itemID == itemDataStruct.itemID);
-        
+
         var newMarketList = saveData.marketItems;
         newMarketList.Remove(itemToRemove);
         saveData.marketItems = newMarketList;

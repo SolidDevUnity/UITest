@@ -24,12 +24,7 @@ public class MarketScreenView : ScreenView
                 itemCache,
                 () =>
                 {
-                    var temp = new ItemDataStruct()
-                    {
-                        itemName = itemCache.itemName,
-                        marketPrice = itemCache.marketPrice
-                    };
-                    marketManagerCache.BuyItem(temp);
+                    marketManagerCache.BuyItem(itemCache.itemDataStruct);
                 },
                 () =>
                 {
