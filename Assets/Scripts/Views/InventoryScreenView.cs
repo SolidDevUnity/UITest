@@ -62,7 +62,7 @@ public class InventoryScreenView : ScreenView
         var itemsToDestroyID = spawnedItemsID.Where(siid => !items.Any(i => i.itemDataStruct.itemID == siid)).ToList();
         foreach (Transform item in itemSpawnPoint)
         {
-            int alreadySpawnedItemID = item.GetComponent<InventoryItemController>().itemRuntime.itemDataStruct.itemID;
+            int alreadySpawnedItemID = item.GetComponent<ItemController>().itemRuntime.itemDataStruct.itemID;
             bool itemIsToBeDestroyed = itemsToDestroyID.Any(its => its == alreadySpawnedItemID);
             if (itemIsToBeDestroyed)
             {
