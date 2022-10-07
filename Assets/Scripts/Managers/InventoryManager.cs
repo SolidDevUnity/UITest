@@ -14,6 +14,8 @@ public class InventoryManager : MonoBehaviour
     private PutUpForSaleScreenView putUpForSaleScreenView;
     [SerializeField]
     private DeleteConfirmationScreenView deleteConfirmationScreenView;
+    
+    private ItemRuntime displayedItem;
 
     public void DeleteItemFromInventory(ItemDataStruct item)
     {
@@ -23,6 +25,12 @@ public class InventoryManager : MonoBehaviour
         ToggleInventoryScreen(true);
     }
 
+    public void SetDisplayedItem(ItemRuntime itemRuntime)
+    {
+        displayedItem = itemRuntime;
+    }
+
+    #region Toggle Screens
     public void ToggleInventoryScreen(bool isActive)
     {
         inventoryScreenView.ToggleScreen(isActive);
@@ -30,14 +38,14 @@ public class InventoryManager : MonoBehaviour
         if (isActive)
         {
             var items = dataManager.GetInventoryItems();
-            inventoryScreenView.Initialize(items);
+            inventoryScreenView.Initialize(items, this);
         }
     }
 
     public void ToggleItemPreviewScreen(bool isActive)
     {
         itemPreviewScreenView.ToggleScreen(isActive);
-        itemPreviewScreenView.Initialize(inventoryScreenView.displayedItem);
+        itemPreviewScreenView.Initialize(displayedItem);
     }
 
     public void TogglePutUpForSaleScreen(bool isActive)
@@ -51,7 +59,8 @@ public class InventoryManager : MonoBehaviour
 
         if (isActive)
         {
-            deleteConfirmationScreenView.Initialize(inventoryScreenView.displayedItem, this);
+            deleteConfirmationScreenView.Initialize(displayedItem, this);
         }
     }
+    #endregion
 }

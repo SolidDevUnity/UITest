@@ -18,16 +18,15 @@ public class InventoryScreenView : ScreenView
     [SerializeField]
     private TextMeshProUGUI itemDescription;
 
-    public ItemRuntime displayedItem { get; private set; }
-
     // refactor later to check for differences instead of always destroying and spawning
-    public void Initialize(List<ItemRuntime> items)
+    public void Initialize(List<ItemRuntime> items, InventoryManager inventoryManager)
     {
         foreach (Transform item in itemSpawnPoint)
         {
             Destroy(item.gameObject);
         }
 
+        var cachedInventoryManager = inventoryManager;
         foreach (var item in items)
         {
             var spawnedItem = Instantiate(inventoryItemPrefab, itemSpawnPoint);
@@ -36,16 +35,16 @@ public class InventoryScreenView : ScreenView
                 item,
                 () =>
                 {
-                    DisplayPreview(itemCache);
+                    DisplayPreview(itemCache, cachedInventoryManager);
                 });
         }
 
-        DisplayPreview(items[0]);
+        DisplayPreview(items[0], cachedInventoryManager);
     }
 
-    private void DisplayPreview(ItemRuntime item)
+    private void DisplayPreview(ItemRuntime item, InventoryManager inventoryManager)
     {
-        displayedItem = item;
+        inventoryManager.SetDisplayedItem(item);
         itemImage.sprite = item.itemImage;
         itemDescription.text = item.itemDescription;
     }
