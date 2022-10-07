@@ -1215,7 +1215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemSpawnPoint: {fileID: 138713598}
-  inventoryItemPrefab: {fileID: 5616867764562435306, guid: 30e6b30a523b8d543bd2f3074e08c808, type: 3}
+  itemPrefab: {fileID: 5616867764562435306, guid: 30e6b30a523b8d543bd2f3074e08c808, type: 3}
   itemImage: {fileID: 45846958}
   itemDescription: {fileID: 748951895}
   previewButton: {fileID: 1945430499}
@@ -10087,8 +10087,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 881e66267ab598d4ca72d6253f8ea3ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  marketItemSpawnPoint: {fileID: 88126029}
-  marketItemPrefab: {fileID: 4657973215626364467, guid: 3fa8c062e69876b4d86217d26da1526f, type: 3}
+  itemSpawnPoint: {fileID: 88126029}
+  itemPrefab: {fileID: 4657973215626364467, guid: 3fa8c062e69876b4d86217d26da1526f, type: 3}
 --- !u!1 &2127010975
 GameObject:
   m_ObjectHideFlags: 0
