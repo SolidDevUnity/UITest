@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,15 +19,13 @@ public class InventoryScreenView : ScreenView
     [SerializeField]
     private TextMeshProUGUI itemDescription;
 
-    // refactor later to check for differences instead of always destroying and spawning
+    private List<int> spawnedItemsID = new List<int>();
+
     public void Initialize(List<ItemRuntime> items, InventoryManager inventoryManager)
     {
-        foreach (Transform item in itemSpawnPoint)
-        {
-            Destroy(item.gameObject);
-        }
-
-        foreach (var item in items)
+        // spawn missing items
+        var itemsToSpawn = items.Where(i => !spawnedItemsID.Any(siid => siid == i.itemDataStruct.itemID)).ToList();
+        foreach (var item in itemsToSpawn)
         {
             var spawnedItem = Instantiate(inventoryItemPrefab, itemSpawnPoint);
             spawnedItem.Initialize(
@@ -35,9 +34,32 @@ public class InventoryScreenView : ScreenView
                 {
                     DisplayPreview(item, inventoryManager);
                 });
+
+            spawnedItemsID.Add(item.itemDataStruct.itemID);
         }
 
-        DisplayPreview(items.Count > 0 ? items[0] : null, inventoryManager);
+        // remove excess items
+        var itemsToDestroyID = spawnedItemsID.Where(siid => !items.Any(i => i.itemDataStruct.itemID == siid)).ToList();
+        foreach (Transform item in itemSpawnPoint)
+        {
+            int alreadySpawnedItemID = item.GetComponent<InventoryItemController>().itemRuntime.itemDataStruct.itemID;
+            bool itemIsToBeDestroyed = itemsToDestroyID.Any(its => its == alreadySpawnedItemID);
+            if (itemIsToBeDestroyed)
+            {
+                Destroy(item.gameObject);
+                spawnedItemsID.Remove(alreadySpawnedItemID);
+            }
+        }
+
+        if(spawnedItemsID.Count > 0)
+        {
+            var itemToDisplay = items.First(i => spawnedItemsID.Any(siid => siid == i.itemDataStruct.itemID));
+            DisplayPreview(itemToDisplay, inventoryManager);
+        }
+        else
+        {
+            DisplayPreview(null, inventoryManager);
+        }
     }
 
     private void DisplayPreview(ItemRuntime item, InventoryManager inventoryManager)
