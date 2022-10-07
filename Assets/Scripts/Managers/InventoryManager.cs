@@ -19,17 +19,8 @@ public class InventoryManager : MonoBehaviour
     {
         ToggleItemPreviewScreen(false);
         dataManager.RemoveInventoryItem(item);
+        ToggleDeleteConfirmationScreen(false);
         ToggleInventoryScreen(true);
-    }
-
-    public void TogglePutUpForSaleScreen(bool isActive)
-    {
-        putUpForSaleScreenView.ToggleScreen(isActive);
-    }
-
-    public void ToggleDeleteConfirmationScreen(bool isActive)
-    {
-        deleteConfirmationScreenView.ToggleScreen(isActive);
     }
 
     public void ToggleInventoryScreen(bool isActive)
@@ -47,5 +38,20 @@ public class InventoryManager : MonoBehaviour
     {
         itemPreviewScreenView.ToggleScreen(isActive);
         itemPreviewScreenView.Initialize(inventoryScreenView.displayedItem);
+    }
+
+    public void TogglePutUpForSaleScreen(bool isActive)
+    {
+        putUpForSaleScreenView.ToggleScreen(isActive);
+    }
+
+    public void ToggleDeleteConfirmationScreen(bool isActive)
+    {
+        deleteConfirmationScreenView.ToggleScreen(isActive);
+
+        if (isActive)
+        {
+            deleteConfirmationScreenView.Initialize(inventoryScreenView.displayedItem, this);
+        }
     }
 }

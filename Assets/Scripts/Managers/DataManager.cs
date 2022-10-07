@@ -116,7 +116,7 @@ public class DataManager : MonoBehaviour
             {
                 if (gameItem.name.Equals(item.itemName))
                 {
-                    var spawnedRuntimeItem = new ItemRuntime(gameItem);
+                    var spawnedRuntimeItem = new ItemRuntime(gameItem, item);
                     spawnedRuntimeItem.marketPrice = item.marketPrice;
 
                     runtimeItems.Add(spawnedRuntimeItem);
