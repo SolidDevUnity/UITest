@@ -6984,6 +6984,7 @@ MonoBehaviour:
   itemPreviewScreenView: {fileID: 315726199}
   putUpForSaleScreenView: {fileID: 1115789825}
   deleteConfirmationScreenView: {fileID: 1790852132}
+  startScreenView: {fileID: 1172687111}
 --- !u!1 &1430673722
 GameObject:
   m_ObjectHideFlags: 0

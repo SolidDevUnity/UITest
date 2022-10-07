@@ -15,13 +15,22 @@ public class InventoryManager : MonoBehaviour
     private PutUpForSaleScreenView putUpForSaleScreenView;
     [SerializeField]
     private DeleteConfirmationScreenView deleteConfirmationScreenView;
-    
+    [SerializeField]
+    private StartScreenView startScreenView;
+
     private ItemRuntime displayedItem;
 
     public void PutUpItemForSale(ItemDataStruct item)
     {
         dataManager.RemoveInventoryItem(item);
+        dataManager.AddGold(item.marketPrice);
+
+        // add gold update event instead
+        var gold = dataManager.GetPlayerGold();
+        startScreenView.UpdateGoldText(gold);
+
         dataManager.AddMarketItem(item);
+
         ToggleItemPreviewScreen(false);
         TogglePutUpForSaleScreen(false);
         ToggleInventoryScreen(true);
