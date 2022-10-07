@@ -39,11 +39,19 @@ public class InventoryScreenView : ScreenView
                 });
         }
 
-        DisplayPreview(items[0], cachedInventoryManager);
+        DisplayPreview(items.Count > 0 ? items[0] : null, cachedInventoryManager);
     }
 
     private void DisplayPreview(ItemRuntime item, InventoryManager inventoryManager)
     {
+        if(item == null)
+        {
+            inventoryManager.SetDisplayedItem(null);
+            itemImage.sprite = null;
+            itemDescription.text = "";
+            return;
+        }
+
         inventoryManager.SetDisplayedItem(item);
         itemImage.sprite = item.itemImage;
         itemDescription.text = item.itemDescription;
