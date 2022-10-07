@@ -19,9 +19,10 @@ public class PutUpForSaleScreenView : ScreenView
         putUpForSaleButton.onClick.RemoveAllListeners();
         putUpForSaleButton.onClick.AddListener(() =>
         {
-            var tempStruct = cachedItemRuntime.itemDataStruct;
-            tempStruct.marketPrice = Int32.Parse(priceInput.text);
-            cachedInventoryManager.PutUpItemForSale(cachedItemRuntime.itemDataStruct);
+            var tempItemDataStruct = cachedItemRuntime.itemDataStruct;
+            tempItemDataStruct.marketPrice = Int32.Parse(priceInput.text);
+            
+            cachedInventoryManager.PutUpItemForSale(tempItemDataStruct);
         });
     }
 }

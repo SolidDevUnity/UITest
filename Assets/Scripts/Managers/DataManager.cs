@@ -117,8 +117,6 @@ public class DataManager : MonoBehaviour
                 if (gameItem.name.Equals(item.itemName))
                 {
                     var spawnedRuntimeItem = new ItemRuntime(gameItem, item);
-                    spawnedRuntimeItem.marketPrice = item.marketPrice;
-
                     runtimeItems.Add(spawnedRuntimeItem);
                 }
             }
@@ -144,8 +142,7 @@ public class DataManager : MonoBehaviour
             {
                 var temp = new ItemDataStruct()
                 {
-                    itemName = item.name,
-                    marketPrice = item.initialMarketPrice
+                    itemName = item.name
                 };
                 savedData.inventoryItems.Add(temp);
             }
