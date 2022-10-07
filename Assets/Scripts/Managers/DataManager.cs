@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 // Saves JSON on PlayerPrefs for testing purposes
 public class DataManager : MonoBehaviour
@@ -61,8 +63,10 @@ public class DataManager : MonoBehaviour
     {
         var saveData = GetSavedData();
 
+        var itemToRemove = saveData.marketItems.First(i => i.itemID == itemDataStruct.itemID);
+        
         var newMarketList = saveData.marketItems;
-        newMarketList.Remove(itemDataStruct);
+        newMarketList.Remove(itemToRemove);
         saveData.marketItems = newMarketList;
 
         SetSavedData(saveData);
@@ -91,8 +95,10 @@ public class DataManager : MonoBehaviour
     {
         var saveData = GetSavedData();
 
+        var itemToRemove = saveData.inventoryItems.First(i => i.itemID == itemDataStruct.itemID);
+
         var newInventoryitems = saveData.inventoryItems;
-        newInventoryitems.Remove(itemDataStruct);
+        newInventoryitems.Remove(itemToRemove);
         saveData.inventoryItems = newInventoryitems;
 
         SetSavedData(saveData);
@@ -142,6 +148,7 @@ public class DataManager : MonoBehaviour
             {
                 var temp = new ItemDataStruct()
                 {
+                    itemID = GenerateUniqueItemID(item, savedData.inventoryItems.Count),
                     itemName = item.name
                 };
                 savedData.inventoryItems.Add(temp);
@@ -152,6 +159,7 @@ public class DataManager : MonoBehaviour
             {
                 var temp = new ItemDataStruct()
                 {
+                    itemID = GenerateUniqueItemID(item, savedData.marketItems.Count),
                     itemName = item.name,
                     marketPrice = item.initialMarketPrice
                 };
@@ -164,5 +172,22 @@ public class DataManager : MonoBehaviour
         }
 
         return savedData;
+    }
+
+    private int GenerateUniqueItemID(ItemSO itemSO, int itemIndex)
+    {
+        DateTime epochStart = new DateTime(1970, 1, 1, 0, 0, 0, System.DateTimeKind.Utc);
+        int cur_time = (int)(DateTime.UtcNow - epochStart).TotalSeconds;
+        int hashCode = itemSO.GetHashCode();
+        int randomNumber = UnityEngine.Random.Range(0, 9999);
+
+        // probably a good enough unique id
+        int uniqueID =
+            hashCode + // avoids same id for different items
+            cur_time + // avoids same id for same items
+            itemIndex + // avoids same id for same items generated at the same list
+            randomNumber; // minimizes chance of same id of same items generated at the same time
+
+        return uniqueID;
     }
 }
