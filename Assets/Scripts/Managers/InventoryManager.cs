@@ -20,17 +20,17 @@ public class InventoryManager : MonoBehaviour
 
     public void PutUpItemForSale(ItemDataStruct item)
     {
+        dataManager.RemoveInventoryItem(item);
+        dataManager.AddMarketItem(item);
         ToggleItemPreviewScreen(false);
         TogglePutUpForSaleScreen(false);
         ToggleInventoryScreen(true);
-        dataManager.RemoveInventoryItem(item);
-        dataManager.AddMarketItem(item);
     }
 
     public void DeleteItemFromInventory(ItemDataStruct item)
     {
-        ToggleItemPreviewScreen(false);
         dataManager.RemoveInventoryItem(item);
+        ToggleItemPreviewScreen(false);
         ToggleDeleteConfirmationScreen(false);
         ToggleInventoryScreen(true);
     }
