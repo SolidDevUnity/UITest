@@ -5,5 +5,7 @@ public class ItemSO : ScriptableObject
 {
     public Sprite icon;
     public string description;
-    public int initialMarketPrice;
+
+    [Space]
+    public PriceRange priceRange;
 }

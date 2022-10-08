@@ -161,7 +161,7 @@ public class DataManager : MonoBehaviour
                 {
                     itemID = GenerateUniqueItemID(item, savedData.marketItems.Count),
                     itemName = item.name,
-                    marketPrice = item.initialMarketPrice
+                    marketPrice = UnityEngine.Random.Range(item.priceRange.minPrice, item.priceRange.maxPrice)
                 };
                 savedData.marketItems.Add(temp);
             }
