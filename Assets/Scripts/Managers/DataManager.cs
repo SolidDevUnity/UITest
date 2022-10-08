@@ -157,12 +157,7 @@ public class DataManager : MonoBehaviour
             savedData.marketItems = new List<ItemDataStruct>();
             foreach (var item in marketStarterItems.items)
             {
-                var temp = new ItemDataStruct()
-                {
-                    itemID = GenerateUniqueItemID(item, savedData.marketItems.Count),
-                    itemName = item.name,
-                    marketPrice = UnityEngine.Random.Range(item.priceRange.minPrice, item.priceRange.maxPrice)
-                };
+                var temp = GenerateItemDataStruct(item, savedData.marketItems.Count);
                 savedData.marketItems.Add(temp);
             }
 
@@ -172,6 +167,18 @@ public class DataManager : MonoBehaviour
         }
 
         return savedData;
+    }
+
+    public ItemDataStruct GenerateItemDataStruct(ItemSO item, int itemIndex)
+    {
+        var temp = new ItemDataStruct()
+        {
+            itemID = GenerateUniqueItemID(item, itemIndex),
+            itemName = item.name,
+            marketPrice = UnityEngine.Random.Range(item.priceRange.minPrice, item.priceRange.maxPrice)
+        };
+
+        return temp;
     }
 
     private int GenerateUniqueItemID(ItemSO itemSO, int itemIndex)
