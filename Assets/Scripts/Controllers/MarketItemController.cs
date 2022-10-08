@@ -13,6 +13,7 @@ public class MarketItemController : ItemController
     protected Button aboutButton;
     
     private int price;
+    private DataManager dataManager;
 
     public void Initialize(ItemRuntime itemRuntime, DataManager dataManager, Action OnBuyButtonClickAction, Action OnAboutButtonClickAction)
     {
@@ -21,6 +22,7 @@ public class MarketItemController : ItemController
         price = itemRuntime.marketPrice;
         marketPriceText.text = "Price: " + price.ToString();
 
+        this.dataManager = dataManager;
         dataManager.OnGoldAmountUpdate += OnGoldAmountUpdateListener;
 
         buyButton.onClick.AddListener(() => OnBuyButtonClickAction?.Invoke());
@@ -35,6 +37,7 @@ public class MarketItemController : ItemController
 
     protected void OnDisable()
     {
+        dataManager.OnGoldAmountUpdate -= OnGoldAmountUpdateListener;
         buyButton.onClick.RemoveAllListeners();
         aboutButton.onClick.RemoveAllListeners();
     }

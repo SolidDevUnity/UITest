@@ -20,8 +20,6 @@ public class MarketManager : ScreenManager
             dataManager.RemoveMarketItem(itemDataStruct);
             dataManager.AddInventoryItem(itemDataStruct);
             ToggleMarketScreen(true);
-
-            var gold = dataManager.GetPlayerGold();
         }
     }
 
