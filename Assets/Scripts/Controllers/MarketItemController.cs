@@ -11,13 +11,26 @@ public class MarketItemController : ItemController
     protected Button buyButton;
     [SerializeField]
     protected Button aboutButton;
+    
+    private int price;
 
-    public void Initialize(ItemRuntime itemRuntime, Action OnBuyButtonClickAction, Action OnAboutButtonClickAction)
+    public void Initialize(ItemRuntime itemRuntime, DataManager dataManager, Action OnBuyButtonClickAction, Action OnAboutButtonClickAction)
     {
         base.Initialize(itemRuntime);
-        marketPriceText.text = "Price: " + itemRuntime.marketPrice.ToString();
+        
+        price = itemRuntime.marketPrice;
+        marketPriceText.text = "Price: " + price.ToString();
+
+        dataManager.OnGoldAmountUpdate += OnGoldAmountUpdateListener;
+
         buyButton.onClick.AddListener(() => OnBuyButtonClickAction?.Invoke());
         aboutButton.onClick.AddListener(() => OnAboutButtonClickAction?.Invoke());
+    }
+
+    private void OnGoldAmountUpdateListener(int goldAmount)
+    {
+        bool hasEnoughGold = goldAmount >= price;
+        buyButton.interactable = hasEnoughGold;
     }
 
     protected void OnDisable()

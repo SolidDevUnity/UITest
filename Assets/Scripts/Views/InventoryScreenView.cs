@@ -40,7 +40,7 @@ public class InventoryScreenView : ScreenListView
             DisplayPreview(null, inventoryManager);
         }
 
-        previewButton.enabled = hasSpawnedItems;
+        previewButton.interactable = hasSpawnedItems;
     }
 
     private void DisplayPreview(ItemRuntime item, InventoryManager inventoryManager)

@@ -34,7 +34,7 @@ public class MarketManager : ScreenManager
             () =>
             {
                 var items = dataManager.GetMarketItems();
-                marketScreenView.Initialize(items, this);
+                marketScreenView.Initialize(items, this, dataManager);
             });
     }
 
