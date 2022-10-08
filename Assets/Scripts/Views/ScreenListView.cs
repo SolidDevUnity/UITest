@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 // if you're reading this i probably forgot to use a reusable scrollrect instead that is alot more performant
 public class ScreenListView : ScreenView
@@ -10,7 +11,7 @@ public class ScreenListView : ScreenView
     protected RectTransform itemSpawnPoint;
     [SerializeField]
     protected ItemController itemPrefab;
-
+    
     protected List<int> spawnedItemsID = new List<int>();
 
     protected virtual void RefreshItemList(List<ItemRuntime> items, Action<ItemRuntime, RectTransform, ItemController> OnSpawnItemAction)

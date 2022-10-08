@@ -17,4 +17,6 @@ MonoBehaviour:
     in South Park episode #147 "Make Love, Not Warcraft". The weapon is needed to
     defeat an unspeakably powerful Alliance griefer who mercilessly kills Alliance
     Players and Blizzard Game Masters.
-  initialMarketPrice: 500
+  priceRange:
+    minPrice: 500
+    maxPrice: 1000

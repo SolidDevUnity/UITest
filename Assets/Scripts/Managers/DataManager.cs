@@ -17,6 +17,8 @@ public class DataManager : MonoBehaviour
     [SerializeField]
     private int startingGold = 1000;
 
+    public Action<int> OnGoldAmountUpdate;
+
     #region Gold
     public int GetPlayerGold()
     {
@@ -28,6 +30,7 @@ public class DataManager : MonoBehaviour
     {
         var saveData = GetSavedData();
         saveData.playerGold += goldToAdd;
+        OnGoldAmountUpdate?.Invoke(saveData.playerGold);
 
         SetSavedData(saveData);
     }
@@ -36,6 +39,7 @@ public class DataManager : MonoBehaviour
     {
         var saveData = GetSavedData();
         saveData.playerGold -= goldToDeduct;
+        OnGoldAmountUpdate?.Invoke(saveData.playerGold);
 
         SetSavedData(saveData);
     }
@@ -133,45 +137,53 @@ public class DataManager : MonoBehaviour
 
     private SaveData GetSavedData()
     {
-        var savedData = new SaveData();
+        var saveData = new SaveData();
 
         if (PlayerPrefs.HasKey(savedDataPrefKey))
         {
             string savedDataJSON = PlayerPrefs.GetString(savedDataPrefKey);
-            savedData = JsonUtility.FromJson<SaveData>(savedDataJSON);
+            saveData = JsonUtility.FromJson<SaveData>(savedDataJSON);
         }
         else
         {
             // Create new data
-            savedData.inventoryItems = new List<ItemDataStruct>();
+            saveData.inventoryItems = new List<ItemDataStruct>();
             foreach (var item in starterItems.items)
             {
                 var temp = new ItemDataStruct()
                 {
-                    itemID = GenerateUniqueItemID(item, savedData.inventoryItems.Count),
+                    itemID = GenerateUniqueItemID(item, saveData.inventoryItems.Count),
                     itemName = item.name
                 };
-                savedData.inventoryItems.Add(temp);
+                saveData.inventoryItems.Add(temp);
             }
 
-            savedData.marketItems = new List<ItemDataStruct>();
+            saveData.marketItems = new List<ItemDataStruct>();
             foreach (var item in marketStarterItems.items)
             {
-                var temp = new ItemDataStruct()
-                {
-                    itemID = GenerateUniqueItemID(item, savedData.marketItems.Count),
-                    itemName = item.name,
-                    marketPrice = item.initialMarketPrice
-                };
-                savedData.marketItems.Add(temp);
+                var temp = GenerateItemDataStruct(item, saveData.marketItems.Count);
+                saveData.marketItems.Add(temp);
             }
 
-            savedData.playerGold = startingGold;
+            saveData.playerGold = startingGold;
+            OnGoldAmountUpdate?.Invoke(saveData.playerGold);
 
-            SetSavedData(savedData);
+            SetSavedData(saveData);
         }
 
-        return savedData;
+        return saveData;
+    }
+
+    public ItemDataStruct GenerateItemDataStruct(ItemSO item, int itemIndex)
+    {
+        var temp = new ItemDataStruct()
+        {
+            itemID = GenerateUniqueItemID(item, itemIndex),
+            itemName = item.name,
+            marketPrice = UnityEngine.Random.Range(item.priceRange.minPrice, item.priceRange.maxPrice)
+        };
+
+        return temp;
     }
 
     private int GenerateUniqueItemID(ItemSO itemSO, int itemIndex)
