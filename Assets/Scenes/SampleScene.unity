@@ -2909,7 +2909,18 @@ MonoBehaviour:
     stash
 
 
-    - This way you can buy more items from the market'
+    - This way you can buy more items from the market
+
+
+    - Clear playerprefs
+    to clear save data
+
+
+    - To change starting gold, go to DataManager gameobject
+
+
+    -
+    To change starting inventory or market items, go to Assets/Data/Holders'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
