@@ -18,11 +18,6 @@ public class InventoryManager : ScreenManager
     {
         dataManager.RemoveInventoryItem(item);
         dataManager.AddGold(item.marketPrice);
-
-        // add gold update event instead
-        var gold = dataManager.GetPlayerGold();
-        startScreenView.UpdateGoldText(gold);
-
         dataManager.AddMarketItem(item);
 
         ToggleItemPreviewScreen(false);

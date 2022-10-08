@@ -22,7 +22,6 @@ public class MarketManager : ScreenManager
             ToggleMarketScreen(true);
 
             var gold = dataManager.GetPlayerGold();
-            startScreenView.UpdateGoldText(gold);
         }
     }
 

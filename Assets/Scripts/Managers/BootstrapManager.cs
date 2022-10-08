@@ -12,6 +12,6 @@ public class BootstrapManager : MonoBehaviour
     private void Start()
     {
         var saveData = dataManager.GetPlayerGold();
-        startScreen.Initialize(saveData);
+        startScreen.Initialize(saveData, dataManager);
     }
 }
