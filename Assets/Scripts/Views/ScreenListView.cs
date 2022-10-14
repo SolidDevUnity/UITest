@@ -12,9 +12,6 @@ public class ScreenListView : ScreenView
     
     protected List<int> spawnedItemsID = new List<int>();
 
-    // making reusable items on a scrollview from scratch was a bit more time consuming than what i expected
-    // this is not really performant if there's alot of items already
-    // i might need to use a premade asset or something from github on an actual project
     protected virtual void RefreshItemList(List<ItemRuntime> items, Action<ItemRuntime, RectTransform, ItemController> OnSpawnItemAction)
     {
         // spawn missing items

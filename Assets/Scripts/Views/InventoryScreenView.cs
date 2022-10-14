@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -41,6 +42,36 @@ public class InventoryScreenView : ScreenListView
         }
 
         previewButton.interactable = hasSpawnedItems;
+    }
+
+    protected virtual void UpdateItemList(List<ItemRuntime> items, InventoryManager inventoryManager)
+    {
+        // spawn missing items
+        var itemsToSpawn = items.Where(i => !spawnedItemsID.Any(siid => siid == i.itemDataStruct.itemID)).ToList();
+        foreach (var item in itemsToSpawn)
+        {
+            var spawnedItem = Instantiate(itemPrefab, itemSpawnPoint) as InventoryItemController;
+            spawnedItem.Initialize(
+                item,
+                () =>
+                {
+                    DisplayPreview(item, inventoryManager);
+                });
+            spawnedItemsID.Add(item.itemDataStruct.itemID);
+        }
+
+        // remove excess items
+        var itemsToDestroyID = spawnedItemsID.Where(siid => !items.Any(i => i.itemDataStruct.itemID == siid)).ToList();
+        foreach (Transform item in itemSpawnPoint)
+        {
+            int alreadySpawnedItemID = item.GetComponent<ItemController>().itemRuntime.itemDataStruct.itemID;
+            bool itemIsToBeDestroyed = itemsToDestroyID.Any(its => its == alreadySpawnedItemID);
+            if (itemIsToBeDestroyed)
+            {
+                Destroy(item.gameObject);
+                spawnedItemsID.Remove(alreadySpawnedItemID);
+            }
+        }
     }
 
     private void DisplayPreview(ItemRuntime item, InventoryManager inventoryManager)
