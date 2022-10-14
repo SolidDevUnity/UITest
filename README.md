@@ -1,4 +1,4 @@
-This is a simple code exam I did before with the following requirements:
+This is a simple code exam I did with the following requirements:
 
 1. Loads a screen that has a UI with some buttons on it and a display that shows a player's gold coins. One button opens up an inventory screen. The other one opens up a market screen.
 
