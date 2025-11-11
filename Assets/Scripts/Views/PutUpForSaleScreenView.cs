@@ -16,7 +16,13 @@ public class PutUpForSaleScreenView : ScreenView
         putUpForSaleButton.onClick.RemoveAllListeners();
         putUpForSaleButton.onClick.AddListener(() =>
         {
-            itemRuntime.itemDataStruct.marketPrice = Int32.Parse(priceInput.text);
+            if (!int.TryParse(priceInput.text, out var parsedPrice) || parsedPrice < 0)
+            {
+                Debug.LogWarning($"Invalid sale price entered: '{priceInput.text}'. Please enter a non-negative whole number.");
+                return;
+            }
+
+            itemRuntime.itemDataStruct.marketPrice = parsedPrice;
             inventoryManager.PutUpItemForSale(itemRuntime.itemDataStruct);
         });
     }
